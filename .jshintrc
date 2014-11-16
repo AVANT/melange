@@ -89,6 +89,7 @@
         "exports": false,
         "__filename": false,
         "__dirname": false,
+        "process": false,
 
         "console": false,
 

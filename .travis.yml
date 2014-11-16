@@ -1,15 +1,20 @@
 language: node_js
-
 node_js:
-  - 0.10
-
-before_install:
-  - npm install -g gulp
-
-script:
-  - gulp ci
-
+- 0.10
+# addons:
+#   sauce_connect: true
 notifications:
   email:
     on_success: never
   slack: vvvnt:MSRstLwIwMENh2Md9gcjJJtn
+env:
+  global:
+  - secure: Elcx9L4MDxbU60EyYHQUmor6dVsu3kGDgo1EtNGB2FLML8XR9RApJDOFPyj4dzHB2sSlS5c9lL4O4BmZEtOlL292mNNUyAvC7XjPdTRY3V6f/YDo0Cp11jory7abvJHgQrGCbGMygTm/yahMYishxuwwjlIfceQNbOS7UJqKDoI=
+  - secure: IDC8/yrXh+UHQSzgXmc3RQjxTj6QDMy6ZPT4LVXhUV7D95Wy+bx5iWwbUha0TQMRnmqS1kABRXW/j5VhDGGENM2GQDVFWJJ1d0jyyNui30XfSAm9feMkWBZOJvaEcxlABmmvuMi9emn4d4yxkvvcFm/BSMoTGwuN6zE265Kmpo8=
+before_install:
+- npm install -g gulp
+before_script:
+- bash ./gulp/sauce.sh
+script:
+- gulp ci
+- gulp e2e
